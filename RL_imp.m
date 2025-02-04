@@ -72,7 +72,9 @@ for i=1:max_iter
 
     % PRO
     if (strcmp(denoise_mode, 'ON'))
-        mrl = (1-alpha).*mrl + alpha.*D(mrl);
+        gamma = estimate_noise(mrl);
+        w = min(100*gamma, alpha);
+        mrl = (1-w).*mrl + w.*D(mrl);
     end
 
     fmrl = F(mrl);

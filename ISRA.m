@@ -40,7 +40,9 @@ for i=1:max_iter
 
     % PRO
     if (strcmp(denoise_mode, 'ON'))
-        israk = (1-alpha).*israk + alpha.*D(israk);
+        gamma = estimate_noise(israk);
+        w = min(100*gamma, alpha);
+        israk = (1-w).*israk + w.*D(israk);
     end
 
 

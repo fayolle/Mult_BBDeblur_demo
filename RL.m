@@ -42,7 +42,9 @@ for i=1:max_iter
 
     % PRO
     if (strcmp(denoise_mode, 'ON'))
-        rlk = (1-alpha).*rlk + alpha.*D(rlk);
+        gamma = estimate_noise(rlk);
+        w = min(100*gamma, alpha);
+        rlk = (1-w).*rlk + w.*D(rlk);
     end
 
 

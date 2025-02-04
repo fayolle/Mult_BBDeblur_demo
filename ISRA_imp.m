@@ -71,7 +71,9 @@ for i=1:max_iter
 
     % PRO
     if (strcmp(denoise_mode, 'ON'))
-        isra = (1-alpha).*isra + alpha.*D(isra);
+        gamma = estimate_noise(isra);
+        w = min(100*gamma, alpha);
+        isra = (1-w).*isra + w.*D(isra);
     end
 
     fisra = F(isra);
