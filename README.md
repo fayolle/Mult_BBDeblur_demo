@@ -3,7 +3,7 @@ This repository contains a simple implementation in MATLAB of the paper 'Acceler
 
 
 ## Examples 
-- The file 'demo_deblur_no_noise_eccv3.m' contains a demonstration of non-blind deblurring with the proposed extensions of Richardon-Lucy (RL), Image Space Reconstruction Algorithm (ISRA) and the original RL and ISRA schemes for a grayscale image 
+- The file 'demo_deblur_no_noise_eccv3.m' contains a demonstration of semi-blind deblurring with the proposed extensions of Richardon-Lucy (RL), Image Space Reconstruction Algorithm (ISRA) and the original RL and ISRA schemes for a grayscale image 
 - The file 'demo_deblur_Gauss_noise_eccv3.m' contains a demonstration of the methods when the input image is altered with Gaussian noise 
 - The file 'demo_deblur_Gauss_noise_eccv3_color.m' contains a demonstration for a color image
 
