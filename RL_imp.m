@@ -54,7 +54,6 @@ end
 
 
 for i=1:max_iter
-    %a = reg_alpha * estimate_nsr(mrl);
     a = reg_alpha * estimate_noise(mrl);
 
     K = fft2(fmrl)./(fft2(mrl)+eps);

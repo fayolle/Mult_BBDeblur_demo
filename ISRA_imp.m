@@ -54,7 +54,6 @@ end
 Y = fft2(y);
 
 for i=1:max_iter
-    %a = reg_alpha * estimate_nsr(mrl);
     a = reg_alpha * estimate_noise(isra);
 
     K = fft2(fisra)./(fft2(isra)+eps);
