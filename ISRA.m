@@ -5,8 +5,6 @@ options.null = 0;
 max_iter = getoptions(options, 'max_iter', 50);
 verbose = getoptions(options, 'verbose', 0);
 denoise_mode = getoptions(options, 'denoise_mode', 'ON'); % 'ON' or 'OFF'
-alpha = getoptions(options, 'alpha', 0.5); % scaling factor for PRO
-
 
 israk = y;
 
@@ -41,7 +39,7 @@ for i=1:max_iter
     % PRO
     if (strcmp(denoise_mode, 'ON'))
         gamma = estimate_noise(israk);
-        w = min(100*gamma, alpha);
+        w = min(100*gamma, 0.5);
         israk = (1-w).*israk + w.*D(israk);
     end
 

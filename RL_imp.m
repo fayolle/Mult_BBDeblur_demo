@@ -28,8 +28,6 @@ verbose = getoptions(options, 'verbose', 0);
 mode = getoptions(options, 'mode', 'LM'); % 'LM' or 'PC'
 denoise_mode = getoptions(options, 'denoise_mode', 'ON'); % 'ON' or 'OFF'
 reg_alpha = getoptions(options, 'reg_alpha', 10.0);
-alpha = getoptions(options, 'alpha', 0.5); % scaling factor for PRO
-
 
 mrl = y;
 err = [];
@@ -73,7 +71,7 @@ for i=1:max_iter
     % PRO
     if (strcmp(denoise_mode, 'ON'))
         gamma = estimate_noise(mrl);
-        w = min(100*gamma, alpha);
+        w = min(100*gamma, 0.5);
         mrl = (1-w).*mrl + w.*D(mrl);
     end
 
