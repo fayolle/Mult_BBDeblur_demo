@@ -26,7 +26,7 @@ options.null = 0;
 max_iter = getoptions(options, 'max_iter', 20);
 verbose = getoptions(options, 'verbose', 0);
 mode = getoptions(options, 'mode', 'LM'); % 'LM' or 'PC'
-denoise_mode = getoptions(options, 'denoise_mode', 'PRO'); % 'none' or 'PRO'
+denoise_mode = getoptions(options, 'denoise_mode', 'ON'); % 'ON' or 'OFF'
 reg_alpha = getoptions(options, 'reg_alpha', 10.0);
 alpha = getoptions(options, 'alpha', 0.5); % scaling factor for PRO
 
@@ -70,7 +70,7 @@ for i=1:max_iter
     isra = isra.*ifft2(Y.*nKconj)./ifft2(fft2(fisra).*nKconj);
 
     % PRO
-    if (strcmp(denoise_mode, 'PRO'))
+    if (strcmp(denoise_mode, 'ON'))
         isra = (1-alpha).*isra + alpha.*D(isra);
     end
 

@@ -34,11 +34,11 @@ D = @(x) x; % no denoiser specified
 % Improved RL
 opts.max_iter = 50;
 opts.verbose = 1;
-opts.denoise_mode = 'none';
+opts.denoise_mode = 'OFF';
 opts.reg_alpha = 10.0; 
 opts.mode = 'LM';
 
-opts.denoise_mode = 'none';
+opts.denoise_mode = 'OFF';
 opts.reg_alpha = 10.0; 
 opts.mode = 'LM';
 [grl, err_grl, psnr_grl, ssim_grl] = RL_imp(f, yout, xin, D, opts);
@@ -49,7 +49,7 @@ figure, imshow(grl), title('RL/LM');
 % Improved ISRA
 opts.max_iter = 50;
 opts.verbose = 1;
-opts.denoise_mode = 'none';
+opts.denoise_mode = 'OFF';
 opts.reg_alpha = 10.0; 
 opts.mode = 'LM';
 [gisra, err_gisra, psnr_gisra, ssim_gisra] = ISRA_imp(f, yout, xin, D, opts);
@@ -60,7 +60,7 @@ figure, imshow(gisra), title('ISRA/LM');
 % RL
 opts.max_iter = 50;
 opts.verbose = 1;
-opts.denoise_mode = 'none';
+opts.denoise_mode = 'OFF';
 [rlk, err_rlk, psnr_rlk, ssim_rlk] = RL(f, yout, xin, D, opts);
 
 figure, imshow(rlk), title('Standard RL');
@@ -69,7 +69,7 @@ figure, imshow(rlk), title('Standard RL');
 % ISRA
 opts.max_iter = 50;
 opts.verbose = 1;
-opts.denoise_mode = 'none';
+opts.denoise_mode = 'OFF';
 [isra, err_isra, psnr_isra, ssim_isra] = ISRA(f, yout, xin, D, opts);
 
 figure, imshow(isra), title('Standard ISRA');
