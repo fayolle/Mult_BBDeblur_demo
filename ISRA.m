@@ -39,7 +39,7 @@ for i=1:max_iter
     israk = israk .* real(ifft2(Y.*Hconj)) ./ real(ifft2(fft2(fisrak).*Hconj));
 
     % PRO
-    if (strcmp(denoise_mode, 'PRO'))
+    if (strcmp(denoise_mode, 'ON'))
         israk = (1-alpha).*israk + alpha.*D(israk);
     end
 

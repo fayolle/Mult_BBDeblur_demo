@@ -41,7 +41,7 @@ for i=1:max_iter
     rlk = real(ifft2(Hconj.*fft2(y./(ifft2(H.*RLK)+eps)))).*rlk;
 
     % PRO
-    if (strcmp(denoise_mode, 'PRO'))
+    if (strcmp(denoise_mode, 'ON'))
         rlk = (1-alpha).*rlk + alpha.*D(rlk);
     end
 
