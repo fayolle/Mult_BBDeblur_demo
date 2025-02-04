@@ -1,5 +1,4 @@
 function [israk, err, psnr_israk, ssim_israk, noise_israk] = ISRA(F, y, x, D, options)
-
 options.null = 0;
 
 max_iter = getoptions(options, 'max_iter', 50);

@@ -1,10 +1,7 @@
 function [rlk, err, psnr_rlk, ssim_rlk, noise_rlk] = RL(F, y, x, D, options)
-
 options.null = 0;
 
 max_iter = getoptions(options, 'max_iter', 50);
-use_pro = getoptions(options, 'use_pro', 1);
-pro_alpha = getoptions(options, 'pro_alpha', 0.5);
 verbose = getoptions(options, 'verbose', 0);
 denoise_mode = getoptions(options, 'denoise_mode', 'ON'); % 'ON' or 'OFF'
 
