@@ -103,6 +103,7 @@ semilogy(psnr_isra, 'LineWidth', 2), axis([1 opts.max_iter 0 max_psnr]);
 hold off;
 legend('acc-RL (LM)', 'acc-RL (PC)', 'acc-ISRA (LM)', 'acc-ISRA (PC)', 'RL', 'ISRA', 'Location', 'southeast');
 set(gca, 'FontSize', fsz, 'LineWidth', alw);
+title('PSNR');
 
 
 % ssim
@@ -119,6 +120,7 @@ semilogy(ssim_isra, 'LineWidth', 2), axis([1 opts.max_iter 0 max_ssim]);
 hold off;
 legend('acc-RL (LM)', 'acc-RL (PC)', 'acc-ISRA (LM)', 'acc-ISRA (PC)', 'RL', 'ISRA', 'Location', 'southeast');
 set(gca, 'FontSize', fsz, 'LineWidth', alw);
+title('SSIM');
 
 
 % Least-square error for ISRA
@@ -132,6 +134,7 @@ semilogy(err_isra, 'LineWidth', 2), axis([1 opts.max_iter 0 max_err]);
 hold off;
 legend('acc-ISRA (LM)', 'acc-ISRA (PC)', 'ISRA', 'Location', 'northeast');
 set(gca, 'FontSize', fsz, 'LineWidth', alw);
+title('L_2 error');
 
 
 % KL divergence for RL
@@ -145,3 +148,4 @@ semilogy(err_rlk(:,2), 'LineWidth', 2), axis([1 opts.max_iter 0 max_err]);
 hold off;
 legend('acc-RL (LM)', 'acc-RL (PC)', 'RL', 'Location', 'northeast');
 set(gca, 'FontSize', fsz, 'LineWidth', alw);
+title('KL divergence');
