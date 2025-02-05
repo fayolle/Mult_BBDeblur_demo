@@ -1,4 +1,26 @@
 function [rlk, err, psnr_rlk, ssim_rlk, noise_rlk] = RL(F, y, x, D, options)
+% RL Richardson-Lucy (RL) iterations
+%   [rlk, ~, ~, ~, ~] = RL(F, y, x, D, opts) deblurs y using filter F
+%
+% Inputs:
+%  F(): black-box blur filter to be inverted 
+%  y: blurry image 
+%  x: clean image, only used for the metrics computation 
+%  D(): denoiser, used to deal with noisy images 
+%  options: 
+%    max_iter: int, number of iterations, default: 20
+%    verbose: 0 or 1, print extra information, default: 0 (no extra information)
+%    denoise_mode: 'ON' or 'OFF', use adaptive smoothing or not, default:
+%    'ON'
+%
+% Outputs:
+%  rlk: deblurred image 
+%  err: list of (L2 error, KL divergence) 
+%  psnr_rlk: list of PSNR scores
+%  ssim_rlk: list of SSIM scores 
+%  noise_rlk: list of estimated noise 
+% 
+
 options.null = 0;
 
 max_iter = getoptions(options, 'max_iter', 50);

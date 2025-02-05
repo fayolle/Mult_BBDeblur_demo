@@ -1,5 +1,27 @@
 function [gmrl, err, psnr_gmrl, ssim_gmrl, noise_gmrl] = RL_imp(F, y, x, D, options)
-% Note: x (the clean image) is only needed for psnr computations
+% RL_IMP An improved modification of Richardson-Lucy (RL) iterations
+%   [gmrl, ~, ~, ~, ~] = RL_imp(F, y, x, D, opts) deblurs y using filter F
+%
+% Inputs:
+%  F(): black-box blur filter to be inverted 
+%  y: blurry image 
+%  x: clean image, only used for the metrics computation 
+%  D(): denoiser, used to deal with noisy images 
+%  options: 
+%    max_iter: int, number of iterations, default: 20
+%    verbose: 0 or 1, print extra information, default: 0 (no extra information)
+%    mode: 'LM' or 'PC', modification type for the iterations, default: 'LM' 
+%    denoise_mode: 'ON' or 'OFF', use adaptive smoothing or not, default:
+%    'ON'
+%    reg_alpha: float, regularizer for the denominator, default: 10.0
+%
+% Outputs:
+%  gmrl: deblurred image 
+%  err: list of (L2 error, KL divergence) 
+%  psnr_gmrl: list of PSNR scores
+%  ssim_gmrl: list of SSIM scores 
+%  noise_gmrl: list of estimated noise 
+% 
 
 if (size(y,3) ~= 1)
     % Color image - Call RL_imp_internal on the luminance channel

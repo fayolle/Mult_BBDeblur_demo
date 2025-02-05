@@ -1,4 +1,26 @@
 function [israk, err, psnr_israk, ssim_israk, noise_israk] = ISRA(F, y, x, D, options)
+% ISRA Image Space Reconstruction Algorithm (ISRA)
+%   [israk, ~, ~, ~, ~] = ISRA(F, y, x, D, opts) deblurs y using filter F
+%
+% Inputs:
+%  F(): black-box blur filter to be inverted 
+%  y: blurry image 
+%  x: clean image, only used for the metrics computation 
+%  D(): denoiser, used to deal with noisy images 
+%  options: 
+%    max_iter: int, number of iterations, default: 20
+%    verbose: 0 or 1, print extra information, default: 0 (no extra information)
+%    denoise_mode: 'ON' or 'OFF', use adaptive smoothing or not, default:
+%    'ON'
+%
+% Outputs:
+%  israk: deblurred image 
+%  err: list of L2 errors 
+%  psnr_israk: list of PSNR scores
+%  ssim_israk: list of SSIM scores 
+%  noise_israk: list of estimated noise 
+% 
+
 options.null = 0;
 
 max_iter = getoptions(options, 'max_iter', 50);
