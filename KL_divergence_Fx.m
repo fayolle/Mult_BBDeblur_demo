@@ -1,7 +1,17 @@
 function kl = KL_divergence_Fx(y, Fx)
-% Compute the KL divergence D(y || F(x)) between y and F(x)
-%
+% KL_DIVERGEBCE_FX Compute the KL divergence D(y || F(x)) between y and F(x)
+%   kl = KL_divergence_Fx(y, Fx) Computes the KL divergence between y and
+%   Fx
+% 
+% This computes a generalized KL divergence between y and Fx defined by: 
 % D(y || F(x)) = sum_{ij} F(x_{ij}) - y_{ij} - y_{ij} ln(F(x_{ij})/y_{ij})
+%
+% Inputs: 
+%  y: observed image 
+%  Fx: computed image 
+% 
+% Output: 
+%  kl: generalized KL divergence 
 %
 
 Fx_y = Fx ./ (y+eps);

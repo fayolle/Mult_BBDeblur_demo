@@ -8,7 +8,7 @@ clc;
 addpath('./images/');
 addpath('./kernels/');
 
-% Image 1 - Barbara 
+% Barbara test image 
 xin = im2double(imread('barbara_face.png'));
 
 % eccv3 kernel
@@ -29,7 +29,7 @@ figure, imshow(xin), title('Original image');
 figure, imshow(yout), title('Blurred image'); 
 
 % Denoiser
-D = @(x) x; % no denoiser specified   
+D = @(x) x; % No denoiser specified   
 
 % Improved RL
 opts.max_iter = 50;
@@ -77,7 +77,7 @@ figure, imshow(isra), title('Standard ISRA');
 
 % ------ Plotting
 
-% some settings for the plots
+% Common settings for the plots
 alw = 0.75;    % AxesLineWidth
 fsz = 11;      % Fontsize
 

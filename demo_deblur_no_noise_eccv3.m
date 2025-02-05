@@ -9,7 +9,7 @@ addpath('./images/');
 addpath('./kernels/');
 
 
-% Image 1 - Barbara
+% Barbara test image 
 xin = im2double(imread('barbara_face.png'));
 
 % eccv3 kernel
@@ -27,7 +27,7 @@ figure, imshow(yout), title('Blurred image');
 % No denoiser needed
 D = @(x) x;
 
-% Improved RL
+% Improved RL (LM variant)
 opts.max_iter = 500;
 opts.verbose = 1;
 opts.denoise_mode = 'OFF';
@@ -46,7 +46,7 @@ opts.mode = 'PC';
 figure, imshow(grl_pc), title('RL/PC');
 
 
-% Improved ISRA
+% Improved ISRA (LM variant)
 opts.max_iter = 500;
 opts.verbose = 1;
 opts.denoise_mode = 'OFF';
@@ -85,7 +85,7 @@ figure, imshow(isra), title('Classic ISRA');
 
 % ------ Plotting
 
-% some settings for the plots
+% Common settings for the plots
 alw = 0.75;    % AxesLineWidth
 fsz = 11;      % Fontsize
 

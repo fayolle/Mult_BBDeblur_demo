@@ -28,8 +28,8 @@ for i=1:nfiles
     figure, imshow(xin), title('Original image');
     figure, imshow(yout), title('Blurred image'); 
     
-    % improved RL
-    D = @(x) x; % no denoiser specified 
+    % Improved RL
+    D = @(x) x; % No denoiser specified 
     opts.max_iter = 100;
     opts.verbose = 1;
     opts.denoise_mode = 'OFF';
