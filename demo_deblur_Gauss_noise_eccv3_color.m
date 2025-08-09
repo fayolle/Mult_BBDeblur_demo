@@ -35,6 +35,6 @@ for i=1:nfiles
     opts.denoise_mode = 'OFF';
     opts.mode = 'PC';
     opts.reg_alpha = 10.0;
-    [grl, ~, ~, ~] = RL_imp(f, yout, xin, D, opts);
+    [grl, ~, ~, ~, ~] = RL_imp(f, yout, xin, D, opts);
     figure, imshow(grl), title('Improved RL');
 end

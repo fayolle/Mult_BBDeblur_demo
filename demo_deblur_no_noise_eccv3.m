@@ -33,7 +33,7 @@ opts.verbose = 1;
 opts.denoise_mode = 'OFF';
 opts.reg_alpha = 10.0;
 opts.mode = 'LM';
-[grl, err_grl, psnr_grl, ssim_grl] = RL_imp(f, yout, xin, D, opts);
+[grl, err_grl, psnr_grl, ssim_grl, ~] = RL_imp(f, yout, xin, D, opts);
 
 figure, imshow(grl), title('RL/LM');
 
@@ -41,7 +41,7 @@ figure, imshow(grl), title('RL/LM');
 % PC variant
 opts.reg_alpha = 10.0;
 opts.mode = 'PC';
-[grl_pc, err_grl_pc, psnr_grl_pc, ssim_grl_pc] = RL_imp(f, yout, xin, D, opts);
+[grl_pc, err_grl_pc, psnr_grl_pc, ssim_grl_pc, ~] = RL_imp(f, yout, xin, D, opts);
 
 figure, imshow(grl_pc), title('RL/PC');
 
@@ -52,7 +52,7 @@ opts.verbose = 1;
 opts.denoise_mode = 'OFF';
 opts.reg_alpha = 10.0;
 opts.mode = 'LM';
-[gisra, err_gisra, psnr_gisra, ssim_gisra] = ISRA_imp(f, yout, xin, D, opts);
+[gisra, err_gisra, psnr_gisra, ssim_gisra, ~] = ISRA_imp(f, yout, xin, D, opts);
 
 figure, imshow(gisra), title('ISRA/LM');
 
@@ -60,7 +60,7 @@ figure, imshow(gisra), title('ISRA/LM');
 % PC variant
 opts.reg_alpha = 10.0;
 opts.mode = 'PC';
-[gisra_pc, err_gisra_pc, psnr_gisra_pc, ssim_gisra_pc] = ISRA_imp(f, yout, xin, D, opts);
+[gisra_pc, err_gisra_pc, psnr_gisra_pc, ssim_gisra_pc, ~] = ISRA_imp(f, yout, xin, D, opts);
 
 figure, imshow(gisra_pc), title('ISRA/PC');
 
@@ -69,7 +69,7 @@ figure, imshow(gisra_pc), title('ISRA/PC');
 opts.max_iter = 500;
 opts.verbose = 1;
 opts.denoise_mode = 'OFF';
-[rlk, err_rlk, psnr_rlk, ssim_rlk] = RL(f, yout, xin, D, opts);
+[rlk, err_rlk, psnr_rlk, ssim_rlk, ~] = RL(f, yout, xin, D, opts);
 
 figure, imshow(rlk), title('Classic RL');
 
@@ -78,7 +78,7 @@ figure, imshow(rlk), title('Classic RL');
 opts.max_iter = 500;
 opts.verbose = 1;
 opts.denoise_mode = 'OFF';
-[isra, err_isra, psnr_isra, ssim_isra] = ISRA(f, yout, xin, D, opts);
+[isra, err_isra, psnr_isra, ssim_isra, ~] = ISRA(f, yout, xin, D, opts);
 
 figure, imshow(isra), title('Classic ISRA');
 
